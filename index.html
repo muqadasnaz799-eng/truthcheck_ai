@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TruthCheck AI - AI-powered information verification system">
+  <title>TruthCheck AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background decoration -->
+  <div class="bg-glow glow-one"></div>
+  <div class="bg-glow glow-two"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a class="brand" href="#home" onclick="showPage('home')">
+      <span class="brand-icon">✓</span>
+      <span>TruthCheck <b>AI</b></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" onclick="showPage('home')">Home</a>
+      <a href="#verify" onclick="showPage('verify')">Verify</a>
+      <a href="#history" onclick="showPage('history')">History</a>
+      <a href="#how-it-works" onclick="showPage('how')">How It Works</a>
+      <a href="#about" onclick="showPage('about')">About</a>
+    </nav>
+
+    <button class="nav-verify" onclick="showPage('verify')">✓ Verify Now</button>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">✦ &nbsp; AI-Powered Information Verification</div>
+          <h1>Don't Just<br><span>Believe It.</span><br>Verify It With<br><span>TruthCheck AI.</span></h1>
+          <p>Check answers, claims and information using evidence-based AI verification and reliable sources.</p>
+
+          <div class="verify-card">
+            <label for="homeClaim">What do you want to verify?</label>
+            <textarea id="homeClaim" maxlength="2000" placeholder="Paste an answer, claim or statement here..."></textarea>
+            <div class="input-footer">
+              <span>Example: The Earth is flat.</span>
+              <span id="homeCounter">0 / 2000</span>
+            </div>
+            <button class="primary-btn full" onclick="startVerification('homeClaim')">Verify Now →</button>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="orbit orbit-1"></div>
+          <div class="orbit orbit-2"></div>
+          <div class="orbit orbit-3"></div>
+          <div class="ai-core">✓</div>
+          <span class="floating-tag tag-verified">✓ Verified</span>
+          <span class="floating-tag tag-misleading">⚠ Misleading</span>
+          <span class="floating-tag tag-false">× False</span>
+          <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-heading">
+          <div class="eyebrow">WHY TRUTHCHECK AI</div>
+          <h2>Verify information with confidence.</h2>
+          <p>Everything you need to evaluate claims and understand the evidence behind a result.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card"><div class="feature-icon">⌕</div><h3>Fake Answer Detection</h3><p>Identify potentially false or misleading answers.</p></article>
+          <article class="feature-card"><div class="feature-icon">✓</div><h3>Evidence Verification</h3><p>Compare claims against available evidence and reliable sources.</p></article>
+          <article class="feature-card"><div class="feature-icon">◔</div><h3>Accuracy Score</h3><p>Get a clear accuracy score and confidence level.</p></article>
+          <article class="feature-card"><div class="feature-icon">↺</div><h3>Verification History</h3><p>Review your previous verification results anytime.</p></article>
+        </div>
+      </div>
+
+      <div class="section how-preview">
+        <div class="section-heading">
+          <div class="eyebrow">SIMPLE PROCESS</div>
+          <h2>How it works</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><span>01</span><h3>Enter Claim</h3><p>Paste an answer or statement.</p></div>
+          <div class="step"><span>02</span><h3>Find Evidence</h3><p>Relevant evidence is collected.</p></div>
+          <div class="step"><span>03</span><h3>AI Analysis</h3><p>Evidence is compared and analyzed.</p></div>
+          <div class="step"><span>04</span><h3>Get Result</h3><p>Receive a clear verification result.</p></div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <h2>Ready to verify the information?</h2>
+        <p>Don't guess. Check the evidence.</p>
+        <button class="primary-btn" onclick="showPage('verify')">Start Verification →</button>
+      </div>
+    </section>
+
+    <!-- VERIFY -->
+    <section id="verify" class="page">
+      <div class="inner-page">
+        <div class="page-heading">
+          <div class="eyebrow">AI VERIFICATION</div>
+          <h1>Verify Information</h1>
+          <p>Enter a claim or answer and let TruthCheck AI analyze the available evidence.</p>
+        </div>
+
+        <div class="large-verify-card">
+          <label for="verifyClaim">Your Claim</label>
+          <textarea id="verifyClaim" maxlength="2000" placeholder="Paste the answer or statement you want to verify..."></textarea>
+          <div class="input-footer"><span>Maximum 2000 characters</span><span id="verifyCounter">0 / 2000</span></div>
+
+          <div class="category-row">
+            <label for="category">Category</label>
+            <select id="category">
+              <option>General</option><option>News</option><option>Science</option>
+              <option>Technology</option><option>Politics</option><option>Health</option>
+              <option>History</option><option>Sports</option><option>Other</option>
+            </select>
+          </div>
+          <button class="primary-btn full" onclick="startVerification('verifyClaim')">⌕ &nbsp; Verify Claim</button>
+        </div>
+
+        <div class="examples">
+          <h3>Try an example</h3>
+          <div class="example-grid">
+            <button onclick="useExample('Earth is flat.')">“Earth is flat.”</button>
+            <button onclick="useExample('Humans only use 10% of their brain.')">“Humans only use 10% of their brain.”</button>
+            <button onclick="useExample('Water boils at 100°C at sea level.')">“Water boils at 100°C at sea level.”</button>
+          </div>
+        </div>
+
+        <div class="info-box">ⓘ <span>TruthCheck AI analyzes available evidence and provides a confidence-based result. If sufficient evidence cannot be found, the system returns <b>UNVERIFIED</b> instead of guessing.</span></div>
+      </div>
+    </section>
+
+    <!-- ANALYZING -->
+    <section id="analyzing" class="page">
+      <div class="loading-page">
+        <div class="loader-ring"><span>✓</span></div>
+        <div class="eyebrow">PLEASE WAIT</div>
+        <h1>Analyzing Your Claim</h1>
+        <p>TruthCheck AI is checking the available evidence.</p>
+
+        <div class="progress-box">
+          <div class="progress-item"><span class="check">✓</span> Understanding the claim</div>
+          <div class="progress-item"><span class="check">✓</span> Searching fact-check information</div>
+          <div class="progress-item"><span class="check">✓</span> Finding relevant evidence</div>
+          <div class="progress-item"><span class="check">✓</span> Comparing supporting and contradicting sources</div>
+          <div class="progress-item"><span class="pending">○</span> Calculating accuracy score</div>
+          <div class="progress-item"><span class="pending">○</span> Generating final result</div>
+        </div>
+        <p class="small-note">This may take a few moments...</p>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="page">
+      <div class="inner-page">
+        <div class="result-top">
+          <div>
+            <div class="eyebrow">VERIFICATION RESULT</div>
+            <h1>Claim Analysis</h1>
+          </div>
+          <button class="outline-btn" onclick="showPage('verify')">+ Verify Another Claim</button>
+        </div>
+
+        <div class="claim-box">
+          <span>SUBMITTED CLAIM</span>
+          <p id="resultClaim">The Earth is flat.</p>
+        </div>
+
+        <div class="result-grid">
+          <div class="verdict-card">
+            <span class="card-label">VERDICT</span>
+            <div class="verdict-icon" id="verdictIcon">×</div>
+            <h2 id="verdictText">FALSE</h2>
+            <p id="verdictSub">The available evidence strongly contradicts this claim.</p>
+          </div>
+
+          <div class="score-card">
+            <span class="card-label">ACCURACY SCORE</span>
+            <div class="score-ring"><strong id="scoreText">2%</strong></div>
+            <p>Based on available evidence</p>
+          </div>
+
+          <div class="confidence-card">
+            <span class="card-label">CONFIDENCE</span>
+            <div class="confidence-value" id="confidenceText">HIGH</div>
+            <p>Evidence strength</p>
+          </div>
+
+          <div class="confidence-card">
+            <span class="card-label">SOURCES CHECKED</span>
+            <div class="confidence-value" id="sourcesText">8</div>
+            <p>Relevant sources</p>
+          </div>
+        </div>
+
+        <div class="content-card">
+          <h2>AI Analysis</h2>
+          <p id="analysisText">Multiple reliable sources contradict this claim. The result shown here is a development preview. Real evidence APIs and AI analysis will be connected in the next development phase.</p>
+        </div>
+
+        <div class="content-card">
+          <h2>Supporting Evidence</h2>
+          <div class="evidence-placeholder"><span>✓</span><div><b>Evidence collection will appear here</b><p>Real source-backed evidence will be connected after the backend/API phase.</p></div></div>
+        </div>
+
+        <div class="content-card">
+          <h2>Contradicting Evidence</h2>
+          <div class="evidence-placeholder danger"><span>×</span><div><b>Contradicting evidence will appear here</b><p>Real evidence and source details will be displayed here.</p></div></div>
+        </div>
+
+        <div class="content-card">
+          <h2>Sources Used</h2>
+          <div class="source-placeholder">Real source cards will be populated by the verification API.</div>
+        </div>
+
+        <button class="primary-btn" onclick="showPage('history')">View History →</button>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="page">
+      <div class="inner-page">
+        <div class="page-heading">
+          <div class="eyebrow">YOUR ACTIVITY</div>
+          <h1>Verification History</h1>
+          <p>Review your previous information verification results.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span>Total Checks</span><strong id="totalChecks">0</strong></div>
+          <div class="stat-card"><span>Verified Claims</span><strong id="verifiedChecks">0</strong></div>
+          <div class="stat-card"><span>Average Accuracy</span><strong id="averageAccuracy">—</strong></div>
+          <div class="stat-card"><span>Last Checked</span><strong id="lastChecked">—</strong></div>
+        </div>
+
+        <div class="history-tools">
+          <input id="historySearch" type="search" placeholder="⌕  Search your verification history..." oninput="renderHistory()">
+          <select id="historyFilter" onchange="renderHistory()">
+            <option>All Results</option><option>TRUE</option><option>MOSTLY TRUE</option>
+            <option>MISLEADING</option><option>FALSE</option><option>UNVERIFIED</option>
+          </select>
+        </div>
+
+        <div class="table-card">
+          <div class="history-table header"><span>Claim</span><span>Verdict</span><span>Accuracy</span><span>Confidence</span><span>Date</span><span>Action</span></div>
+          <div id="historyRows"></div>
+          <div id="emptyHistory" class="empty-history">No verification history yet. Verify your first claim.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="page">
+      <div class="inner-page">
+        <div class="page-heading center">
+          <div class="eyebrow">TRANSPARENT PROCESS</div>
+          <h1>How TruthCheck AI Works</h1>
+          <p>Evidence first, AI second — designed to reduce guessing and make results easier to understand.</p>
+        </div>
+        <div class="process-grid">
+          <article><span>01</span><div class="feature-icon">⌕</div><h2>Submit Your Claim</h2><p>Enter an answer, statement or claim you want to check.</p></article>
+          <article><span>02</span><div class="feature-icon">▤</div><h2>Find Relevant Evidence</h2><p>The verification workflow searches available fact-check and source information.</p></article>
+          <article><span>03</span><div class="feature-icon">✦</div><h2>Compare With AI</h2><p>AI evaluates the collected evidence instead of relying only on its own knowledge.</p></article>
+          <article><span>04</span><div class="feature-icon">✓</div><h2>Generate Result</h2><p>You receive a verdict, accuracy score, confidence level and evidence summary.</p></article>
+        </div>
+        <div class="info-box large">ⓘ <span><b>Why we show UNVERIFIED:</b> TruthCheck AI should not guess when reliable evidence is insufficient. When the available evidence does not support a confident conclusion, the system marks the claim as UNVERIFIED.</span></div>
+        <div class="content-card center"><h2>Evidence First, AI Second</h2><p>Our intended architecture uses source evidence as the foundation. The AI analyzes the evidence and explains the result rather than being treated as the only source of truth.</p></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="page">
+      <div class="inner-page about-page">
+        <div class="page-heading center">
+          <div class="eyebrow">ABOUT THE PROJECT</div>
+          <h1>About TruthCheck AI</h1>
+          <p>AI-powered information verification for clearer, evidence-based answers.</p>
+        </div>
+        <div class="about-grid">
+          <div class="content-card"><h2>Project Objective</h2><p>TruthCheck AI is an AI-powered information verification system designed to help users evaluate claims and answers using evidence, source information and AI-assisted analysis.</p></div>
+          <div class="content-card"><h2>Key Features</h2><ul><li>Fake answer detection</li><li>Information verification</li><li>Accuracy score</li><li>Confidence level</li><li>Evidence and sources</li><li>Verification history</li></ul></div>
+          <div class="content-card"><h2>Technology Concept</h2><p>The final version will connect a web frontend with verification APIs, an AI analysis layer and a database for result history.</p></div>
+          <div class="content-card"><h2>Responsible AI</h2><p>The system should distinguish FALSE from UNVERIFIED and avoid inventing sources or evidence when reliable information is not available.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand"><span class="brand-icon">✓</span><div><b>TruthCheck AI</b><p>AI Fake Answering & Information Verification System</p></div></div>
+    <div class="footer-links"><a href="#verify" onclick="showPage('verify')">Verify</a><a href="#history" onclick="showPage('history')">History</a><a href="#how-it-works" onclick="showPage('how')">How It Works</a><a href="#about" onclick="showPage('about')">About</a></div>
+    <p class="copyright">© 2026 TruthCheck AI. Academic project.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
